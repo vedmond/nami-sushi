@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "title": "ролл ясай",
+    "price": 200,
+    "image_link": ".src/assets/images/roll-1.png",
+    "description": "Огурец, авакадо, помидор, болгарский перец, листья салата, кунжут",
+    "weight": 185,
+    "type": "rolls"
+  },
+  {
+    "id": 2,
+    "title": "мясные роллы",
+    "price": 240,
+    "image_link": ".src/assets/images/roll-2.png",
+    "description": "Огурец, авакадо, помидор, болгарский перец, листья салата, кунжут",
+    "weight": 260,
+    "type": "rolls"
+  },
+  {
+    "id": 3,
+    "title": "ролл лайт",
+    "price": 165,
+    "image_link": ".src/assets/images/roll-3.png",
+    "description": "Листья салата, огурец, перец, помидор, сырный соус, чипсы",
+    "weight": 190,
+    "type": "rolls"
+  },
+  {
+    "id": 4,
+    "title": "ролл веган",
+    "price": 200,
+    "image_link": ".src/assets/images/roll-4.png",
+    "description": "Листья салата, авокадо, огурец, спаржа, сивид чука, кунжут",
+    "weight": 230,
+    "type": "rolls"
+  },
+  {
+    "id": 5,
+    "title": "ролл чирро",
+    "price": 210,
+    "image_link": ".src/assets/images/roll-5.png",
+    "description": "Листья салата, копченая курица, болгарский перец, твердый сыр, чесночный соус",
+    "weight": 210,
+    "type": "rolls"
+  },
+  {
+    "id": 6,
+    "title": "ролл тайол",
+    "price": 215,
+    "image_link": ".src/assets/images/roll-6.png",
+    "description": "Огурец, помидор, сыр творожный, бекон, сыр маасдам",
+    "weight": 215,
+    "type": "rolls"
+  },
+  {
+    "id": 7,
+    "title": "ролл батакон",
+    "price": 220,
+    "image_link": ".src/assets/images/roll-7.png",
+    "description": "Огурец, сыр творожный, бекон",
+    "weight": 230,
+    "type": "rolls"
+  },
+  {
+    "id": 8,
+    "title": "ролл каллипсо",
+    "price": 195,
+    "image_link": ".src/assets/images/roll-8.png",
+    "description": "Сыр творожный, огурец, мидии, стружка тунца",
+    "weight": 185,
+    "type": "rolls"
+  },
+  {
+    "id": 9,
+    "title": "ролл кавьяр",
+    "price": 200,
+    "image_link": ".src/assets/images/roll-9.png",
+    "description": "Сыр творожный, помидор, огурец, мидии, майонез",
+    "weight": 240,
+    "type": "rolls"
+  },
+  {
+    "id": 10,
+    "title": "ролл чипу",
+    "price": 190,
+    "image_link": ".src/assets/images/roll-10.png",
+    "description": "Сыр творожный, лосось, томаго, стружка тунца",
+    "weight": 180,
+    "type": "rolls"
+  },
+  {
+    "id": 11,
+    "title": "ролл катана",
+    "price": 250,
+    "image_link": ".src/assets/images/roll-11.png",
+    "description": "Сыр творожный, краб, огурец, черный кунжут, лососевый тар-тар, спайси соус",
+    "weight": 240,
+    "type": "rolls"
+  },
+  {
+    "id": 12,
+    "title": "ролл мишуку",
+    "price": 260,
+    "image_link": ".src/assets/images/roll-12.png",
+    "description": "Угорь, краб, огурец, масаго, сыр творожный, сырный соус, картофельные чипсы",
+    "weight": 210,
+    "type": "rolls"
+  },
+  {
+    "id": 13,
+    "title": "ролл ясай",
+    "price": 200,
+    "image_link": ".src/assets/images/roll-1.png",
+    "description": "Огурец, авакадо, помидор, болгарский перец, листья салата, кунжут",
+    "weight": 185,
+    "type": "rolls"
+  },
+  {
+    "id": 14,
+    "title": "ролл веган",
+    "price": 200,
+    "image_link": ".src/assets/images/roll-4.png",
+    "description": "Листья салата, авокадо, огурец, спаржа, сивид чука, кунжут",
+    "weight": 230,
+    "type": "rolls"
+  },
+  {
+    "id": 15,
+    "title": "ролл лайт",
+    "price": 165,
+    "image_link": ".src/assets/images/roll-3.png",
+    "description": "Листья салата, огурец, перец, помидор, сырный соус, чипсы",
+    "weight": 190,
+    "type": "rolls"
+  },
+  {
+    "id": 16,
+    "title": "ролл веган",
+    "price": 200,
+    "image_link": ".src/assets/images/roll-4.png",
+    "description": "Листья салата, авокадо, огурец, спаржа, сивид чука, кунжут",
+    "weight": 230,
+    "type": "rolls"
+  }
+]
