@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-// import ItemsCounter from './items-counter.vue'
-import newItemsCounter from './new-items-counter.vue'
+import ItemsCounter from './items-counter.vue'
+// import { handlerCounter } from './utils/utils'
 
 const props = defineProps({
   item: Object,
@@ -37,25 +37,25 @@ if (itemId) {
   count.value = itemId.count
 }
 
-// const handlerCounter = (value) => {
-//   const store = JSON.parse(localStorage.getItem('cart'))
-//   if (value === 'plus' && count.value < 99) {
-//     count.value++
-//   } else if (count.value > 0 && value === 'minus') {
-//     count.value--
-//   }
-//   store.map((item) => {
-//     if (item.id === props.item.id) {
-//       item.count = count.value
-//       if (count.value === 0) {
-//         isBasket.value = false
-//       }
-//     }
-//   })
-//   const newStore = store.filter((item) => item.count > 0)
-//   localStorage.setItem('cart', JSON.stringify(newStore))
-//   props.changeCart()
-// }
+const handlerCounter = (value) => {
+  const store = JSON.parse(localStorage.getItem('cart'))
+  if (value === 'plus' && count.value < 99) {
+    count.value++
+  } else if (count.value > 0 && value === 'minus') {
+    count.value--
+  }
+  store.map((item) => {
+    if (item.id === props.item.id) {
+      item.count = count.value
+      if (count.value === 0) {
+        isBasket.value = false
+      }
+    }
+  })
+  const newStore = store.filter((item) => item.count > 0)
+  localStorage.setItem('cart', JSON.stringify(newStore))
+  props.changeCart()
+}
 </script>
 
 <template>
@@ -86,8 +86,7 @@ if (itemId) {
     <div class="flex flex-row justify-between items-center w-10/12">
       <p class="text-lg" :class="{ 'text-slate-400': isBasket }">{{ item.price }} ₽</p>
       <div v-if="isBasket" class="flex flex-row items-center gap-2">
-        <!-- <items-counter @handler-counter="handlerCounter" :count="count" /> -->
-        <new-items-counter />
+        <items-counter @handler-counter="handlerCounter" :count="count" />
       </div>
       <button v-else class="bg-black px-3 py-2 rounded-xl text-xs text-white" @click="addCart">
         В корзину

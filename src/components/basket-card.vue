@@ -20,7 +20,7 @@ defineProps({
     <div class="flex flex-col justify-around items-center w-[130px]">
       <p class="text-sm text-slate-800">Цена {{ item.price }} ₽</p>
       <div class="flex flex-row items-center gap-2 w-[100px]">
-        <items-counter :count="item.count" :flag="true" />
+        <items-counter :count="item.count" :isBasketCard="true" />
       </div>
       <p class="text-sm text-slate-800">Сумма 16995 ₽</p>
     </div>

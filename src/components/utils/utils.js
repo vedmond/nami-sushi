@@ -1,7 +1,4 @@
-import { ref } from 'vue'
-
-export const handlerCounter = (value, props) => {
-  const count = ref(1)
+export const handlerCounter = (value, count, props, isBasket) => {
   const store = JSON.parse(localStorage.getItem('cart'))
   if (value === 'plus' && count.value < 99) {
     count.value++
@@ -11,6 +8,9 @@ export const handlerCounter = (value, props) => {
   store.map((item) => {
     if (item.id === props.item.id) {
       item.count = count.value
+      if (count.value === 0) {
+        isBasket.value = false
+      }
     }
   })
   const newStore = store.filter((item) => item.count > 0)

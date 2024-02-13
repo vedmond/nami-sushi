@@ -5,8 +5,21 @@ const props = defineProps({
 })
 const count = ref(1)
 
+// const handlerPlus = () => {
+//   if (count.value < 99) {
+//     count.value++
+//   }
+// }
+
+// const handlerMinus = () => {
+//   if (count.value > 0) {
+//     count.value--
+//   }
+// }
+
 const handlerCounter = (value) => {
   const store = JSON.parse(localStorage.getItem('cart'))
+
   if (value === 'plus' && count.value < 99) {
     count.value++
   } else if (count.value > 0 && value === 'minus') {
