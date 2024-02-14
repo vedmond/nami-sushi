@@ -3,6 +3,7 @@ import HeaderBlock from './components/header-block.vue'
 import MenuBlock from './components/menu-block.vue'
 import ItemsList from './components/items-list.vue'
 import UserCart from './components/user-cart.vue'
+import DividerWindow from './components/divider-window.vue'
 import { onMounted, ref, watch } from 'vue'
 import { fetchItems } from './components/utils/api.js'
 
@@ -27,12 +28,9 @@ const showCart = () => {
 
 <template>
   <div class="wrapper flex items-center justify-center relative">
-    <div
-      v-if="IsShowCart"
-      class="absolute top-0 right-0 w-full h-full bg-slate-900 opacity-30 z-10"
-      @click="showCart"
-    ></div>
-    <user-cart :IsShowCart="IsShowCart" />
+    <divider-window v-if="IsShowCart" @click="showCart" />
+
+    <user-cart :IsShowCart="IsShowCart" :changeCart="changeCart" />
     <header-block :itemsCart="itemsCart" @show-cart="showCart" />
     <main class="flex flex-col justify-center items-center text-black">
       <MenuBlock />

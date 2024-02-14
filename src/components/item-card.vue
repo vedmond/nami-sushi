@@ -1,11 +1,35 @@
 <script setup>
 import { ref } from 'vue'
 import ItemsCounter from './items-counter.vue'
+import LikeButton from './card-components/like-button.vue'
+import ImageButton from './card-components/image-button.vue'
+import ItemTitle from './card-components/item-title.vue'
+import ItemDescription from './card-components/item-description.vue'
+import ItemPrice from './card-components/item-price.vue'
+import ItemWeight from './card-components/item-weight.vue'
+import {
+  STYLE_ITEMS_CARD_CONTAINER,
+  STYLE_BASKET_CARD_CONTAINER,
+  STYLE_ITEMS_CARD_BLOCK_TEXT_LIKE_BUTTON,
+  STYLE_ITEMS_CARD_BLOCK_TEXT_WEIGHT,
+  STYLE_ITEMS_CARD_BLOCK_CALCULATION,
+  STYLE_ITEMS_CARD_BLOCK_CALCULATION_PRICE,
+  STYLE_ITEMS_CARD_IMAGE,
+  STYLE_ITEMS_CARD_BLOCK_CALCULATION_BOX_COUNTER,
+  STYLE_BASKET_CARD_BLOCK_CALCULATION,
+  STYLE_BASKET_CARD_BLOCK_CALCULATION_PRICE,
+  STYLE_BASKET_CARD_BLOCK_TEXT,
+  STYLE_BASKET_CARD_BLOCK_TEXT_LIKE_BUTTON,
+  STYLE_BASKET_CARD_IMAGE,
+  STYLE_BASKET_CARD_BLOCK_TEXT_WEIGHT,
+  STYLE_BASKET_CARD_BLOCK_CALCULATION_BOX_COUNTER
+} from './card-components/card-styles'
 // import { handlerCounter } from './utils/utils'
 
 const props = defineProps({
   item: Object,
-  changeCart: Function
+  changeCart: Function,
+  isShowCart: Boolean
 })
 const basket = ref(JSON.parse(localStorage.getItem('cart')) || [])
 const isBasket = ref(false)
@@ -60,36 +84,54 @@ const handlerCounter = (value) => {
 
 <template>
   <div
-    class="flex flex-col items-center relative border-4 border-slate-200 w-[270px] h-[390px] shadow-2xl rounded-xl hover:transform hover:scale-105 hover:duration-300"
-    :class="{ 'bg-slate-900': isBasket, 'bg-white': !isBasket }"
+    v-if="!isShowCart"
+    :class="[STYLE_ITEMS_CARD_CONTAINER, isBasket ? 'bg-slate-900' : 'bg-white']"
   >
-    <button
-      class="flex w-6 h-6 absolute top-2 right-3 rounded-full"
-      :class="{ 'bg-slate-200': isBasket }"
-    >
-      <img src="../assets/icons/like-1.png" alt="dis like" class="m-auto" />
-    </button>
-    <button class="flex w-32 h-32">
-      <img :src="item.image_link" alt="roll" class="m-auto" />
-    </button>
+    <like-button :style="STYLE_ITEMS_CARD_BLOCK_TEXT_LIKE_BUTTON" :isBasket="isBasket" />
+    <image-button :image_link="item.image_link" :style="STYLE_ITEMS_CARD_IMAGE" />
     <div class="flex flex-row justify-between items-center w-44">
-      <h3 class="text-md font-bold uppercase" :class="{ 'text-slate-200': isBasket }">
-        {{ item.title }}
-      </h3>
-      <p class="text-sm text-slate-400">{{ item.weight }} г</p>
+      <item-title :title="item.title" :isBasket="isBasket" />
+      <item-weight :style="STYLE_ITEMS_CARD_BLOCK_TEXT_WEIGHT" :weight="item.weight" />
     </div>
     <div class="w-44 h-24">
-      <p class="text-[0.8rem] leading-[0.8rem] text-slate-400">
-        {{ item.description }}
-      </p>
+      <item-description :description="item.description" />
     </div>
-    <div class="flex flex-row justify-between items-center w-10/12">
-      <p class="text-lg" :class="{ 'text-slate-400': isBasket }">{{ item.price }} ₽</p>
-      <div v-if="isBasket" class="flex flex-row items-center gap-2">
+    <div :class="STYLE_ITEMS_CARD_BLOCK_CALCULATION">
+      <item-price
+        :style="STYLE_ITEMS_CARD_BLOCK_CALCULATION_PRICE"
+        :price="item.price"
+        :isBasket="isBasket"
+      />
+      <div v-if="isBasket" :class="STYLE_ITEMS_CARD_BLOCK_CALCULATION_BOX_COUNTER">
         <items-counter @handler-counter="handlerCounter" :count="count" />
       </div>
       <button v-else class="bg-black px-3 py-2 rounded-xl text-xs text-white" @click="addCart">
         В корзину
+      </button>
+    </div>
+  </div>
+  <div v-else :class="[STYLE_BASKET_CARD_CONTAINER]">
+    <image-button :image_link="item.image_link" :style="STYLE_BASKET_CARD_IMAGE" />
+    <div :class="STYLE_BASKET_CARD_BLOCK_TEXT">
+      <like-button :style="STYLE_BASKET_CARD_BLOCK_TEXT_LIKE_BUTTON" :isBasket="isBasket" />
+      <item-title :title="item.title" />
+      <item-description :description="item.description" />
+      <item-weight :style="STYLE_BASKET_CARD_BLOCK_TEXT_WEIGHT" :weight="item.weight" />
+    </div>
+    <div :class="STYLE_BASKET_CARD_BLOCK_CALCULATION">
+      <item-price
+        :style="STYLE_BASKET_CARD_BLOCK_CALCULATION_PRICE"
+        :price="item.price"
+        :isBasket="isBasket"
+      />
+      <div :class="STYLE_BASKET_CARD_BLOCK_CALCULATION_BOX_COUNTER">
+        <items-counter :count="item.count" :isBasketCard="true" />
+      </div>
+      <p class="text-sm text-slate-800">Сумма 16995 ₽</p>
+    </div>
+    <div class="flex w-[50px] bg-[url('../assets/icons/rectangle.png')] bg-no-repeat bg-right">
+      <button class="w-12 h-12 m-auto ml-6">
+        <img src="../assets/icons/trash.png" alt="" />
       </button>
     </div>
   </div>

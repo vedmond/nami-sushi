@@ -1,10 +1,12 @@
 <script setup>
 import { watch, ref } from 'vue'
-import BasketCard from './basket-card.vue'
+// import BasketCard from './basket-card.vue'
+import ItemCard from './item-card.vue'
 
 const itemsUserCart = ref([])
 const props = defineProps({
-  IsShowCart: Boolean
+  IsShowCart: Boolean,
+  changeCart: Function
 })
 watch(props, () => {
   if (props.IsShowCart === true) {
@@ -30,7 +32,14 @@ watch(props, () => {
         <span class="text-black text-3xl font-bold pt-[3px]">·</span>
       </div>
       <div class="mt-10">
-        <BasketCard v-for="item in itemsUserCart" :key="item.id" :item="item" />
+        <!-- <BasketCard v-for="item in itemsUserCart" :key="item.id" :item="item" /> -->
+        <ItemCard
+          v-for="item in itemsUserCart"
+          :key="item.id"
+          :item="item"
+          :changeCart="changeCart"
+          :isShowCart="IsShowCart"
+        />
       </div>
     </div>
   </div>
@@ -43,6 +52,5 @@ watch(props, () => {
 }
 .disactive {
   right: -650px;
-  transition: 0.3s;
 }
 </style>
