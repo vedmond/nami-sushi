@@ -1,11 +1,16 @@
 <script setup>
-import { inject } from 'vue'
+import { inject, ref } from 'vue'
 import { useBasketStore } from '@/stores/BasketStore'
 import ItemCardBasket from './ItemCardBasket.vue'
+import MakeOrder from './MakeOrderView.vue'
 
+const isShowMakeOrder = ref(false)
 const basketStore = useBasketStore()
 const isShowBasket = inject('isShowBasket')
 
+const showMakeOrder = () => {
+  isShowMakeOrder.value = !isShowMakeOrder.value
+}
 const emits = defineEmits(['show-basket'])
 </script>
 <template>
@@ -13,7 +18,7 @@ const emits = defineEmits(['show-basket'])
     class="absolute top-0 w-[600px] h-full bg-[#d6c2b3] z-20"
     :class="{ active: isShowBasket, dis_active: !isShowBasket }"
   >
-    <div class="flex flex-col items-center">
+    <div v-if="!isShowMakeOrder" class="flex flex-col items-center">
       <div class="flex flex-row gap-4 mt-10">
         <span class="text-black text-3xl font-bold pt-[3px]">·</span>
         <h2 class="text-black text-4xl text-uppercase">корзина</h2>
@@ -35,6 +40,7 @@ const emits = defineEmits(['show-basket'])
             Вернуться к покупкам
           </button>
           <button
+            @click="showMakeOrder"
             class="bg-black px-3 py-2 rounded-xl text-white hover:transform hover:scale-105 hover:duration-200"
           >
             Оформить заказ
@@ -42,6 +48,7 @@ const emits = defineEmits(['show-basket'])
         </div>
       </div>
     </div>
+    <make-order v-else />
   </div>
 </template>
 

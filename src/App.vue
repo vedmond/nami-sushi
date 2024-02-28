@@ -27,7 +27,7 @@ provide('isShowBasket', IsShowBasket)
 </script>
 
 <template>
-  <div class="wrapper flex items-center justify-center relative">
+  <div class="wrapper flex items-center justify-center relative overflow-hidden">
     <DividerWindow v-if="IsShowBasket" @click="showBasket" />
     <BasketList @show-basket="showBasket" />
     <HeaderView @show-basket="showBasket" />
