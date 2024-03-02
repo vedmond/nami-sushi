@@ -1,17 +1,14 @@
 <script setup>
-import { inject, ref } from 'vue'
+import { inject } from 'vue'
 import { useBasketStore } from '@/stores/BasketStore'
 import ItemCardBasket from './ItemCardBasket.vue'
 import MakeOrder from './MakeOrderView.vue'
 
-const isShowMakeOrder = ref(false)
 const basketStore = useBasketStore()
 const isShowBasket = inject('isShowBasket')
+const isShowMakeOrder = inject('isShowMakeOrder')
 
-const showMakeOrder = () => {
-  isShowMakeOrder.value = !isShowMakeOrder.value
-}
-const emits = defineEmits(['show-basket'])
+const emits = defineEmits(['show-basket', 'show-make-order'])
 </script>
 <template>
   <div
@@ -40,7 +37,7 @@ const emits = defineEmits(['show-basket'])
             Вернуться к покупкам
           </button>
           <button
-            @click="showMakeOrder"
+            @click="emits('show-make-order')"
             class="bg-black px-3 py-2 rounded-xl text-white hover:transform hover:scale-105 hover:duration-200"
           >
             Оформить заказ

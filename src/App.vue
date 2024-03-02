@@ -8,6 +8,7 @@ import DividerWindow from './components/DividerWindow.vue'
 import BasketList from './components/BasketList.vue'
 import { fetchItems } from './components/utils/api'
 const items = ref([])
+const isShowMakeOrder = ref(false)
 const basketStore = useBasketStore()
 const IsShowBasket = ref(false)
 onMounted(async () => {
@@ -16,20 +17,27 @@ onMounted(async () => {
 
 const showBasket = () => {
   if (basketStore.basketItems.length > 0) {
+    // is it need?
     setTimeout(() => {
       IsShowBasket.value = !IsShowBasket.value
-    }, 800)
+      isShowMakeOrder.value = false
+    }, 500)
   }
+}
+
+const showMakeOrder = () => {
+  isShowMakeOrder.value = !isShowMakeOrder.value
 }
 
 provide('items', items)
 provide('isShowBasket', IsShowBasket)
+provide('isShowMakeOrder', isShowMakeOrder)
 </script>
 
 <template>
   <div class="wrapper flex items-center justify-center relative overflow-hidden">
     <DividerWindow v-if="IsShowBasket" @click="showBasket" />
-    <BasketList @show-basket="showBasket" />
+    <BasketList @show-basket="showBasket" @show-make-order="showMakeOrder" />
     <HeaderView @show-basket="showBasket" />
     <div class="main">
       <div class="flex flex-col justify-center items-center text-black">
