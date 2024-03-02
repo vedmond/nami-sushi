@@ -17,7 +17,6 @@ onMounted(async () => {
 
 const showBasket = () => {
   if (basketStore.basketItems.length > 0) {
-    // is it need?
     setTimeout(() => {
       IsShowBasket.value = !IsShowBasket.value
       isShowMakeOrder.value = false

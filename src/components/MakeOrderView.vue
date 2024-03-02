@@ -1,17 +1,49 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useBasketStore } from '@/stores/BasketStore'
 const basketStore = useBasketStore()
 
 const name = ref('')
 const phoneNumber = ref('')
 const informText = ref('')
+const isPhoneFieldError = ref(false)
+const isNameFieldError = ref(false)
+const isPhonePatternValid = ref(true)
+const isNamePatternValid = ref(true)
+
+const phonePattern = /^\+?\d{11}$|^\d{11}$/
+const namePattern = /^[a-zA-Zа-яА-Я]{2,}$/
 
 const submitForm = () => {
-  console.log(name.value)
-  console.log(phoneNumber.value)
-  console.log(informText.value)
+  if (!phoneNumber.value) {
+    isPhoneFieldError.value = true
+  } else {
+    isPhonePatternValid.value = phonePattern.test(phoneNumber.value)
+  }
+  if (!name.value) {
+    isNameFieldError.value = true
+  } else {
+    isNamePatternValid.value = namePattern.test(name.value)
+  }
+  if (
+    !isPhoneFieldError.value &&
+    isPhonePatternValid.value &&
+    !isNameFieldError.value &&
+    isNamePatternValid.value
+  ) {
+    console.log(name.value)
+    console.log(phoneNumber.value)
+    console.log(informText.value.length)
+  }
 }
+watch(phoneNumber, () => {
+  isPhoneFieldError.value = false
+  isPhonePatternValid.value = true
+})
+watch(name, () => {
+  isNameFieldError.value = false
+  isNamePatternValid.value = true
+})
 </script>
 <template>
   <div class="flex flex-col items-center">
@@ -44,31 +76,52 @@ const submitForm = () => {
       </div>
     </div>
     <form>
-      <div class="w-[500px] h-[270px] bg-white pl-2 mt-5">
+      <div class="w-[500px] h-[290px] bg-white pl-2 mt-5">
         <div class="flex flex-row items-center gap-3 mt-2">
           <div class="w-6 h-6 mt-[10px] bg-red-500 rounded-full text-white text-center">2</div>
           <span class="text-md mt-[12px] pt-2">Данные для доставки</span>
         </div>
         <div class="flex flex-col items-center">
-          <input
-            v-model="name"
-            type="text"
-            class="prev__block name__icon w-4/5 h-10 mt-2 border-b-2 border-slate-400 outline-none pl-9 text-xs"
-            placeholder="Имя"
-          />
+          <div class="flex flex-col w-4/5 h-[70px]">
+            <input
+              v-model="name"
+              type="text"
+              class="prev__block name__icon w-4/5 h-10 border-b-2 border-slate-400 outline-none pl-9 text-md"
+              placeholder="Имя"
+            />
+            <span v-if="isNameFieldError" class="text-red-500 text-[15px]"
+              >Это обязательное поле</span
+            >
+            <span v-if="!isNamePatternValid" class="text-red-500 text-[15px]"
+              >Некорректное имя</span
+            >
+          </div>
 
-          <input
-            v-model="phoneNumber"
-            type="text"
-            class="prev__block phone__icon w-4/5 h-8 mt-3 border-b-2 border-slate-400 outline-none pl-9 text-xs"
-            placeholder="Телефон"
-          />
-          <input
-            v-model="informText"
-            type="textArea"
-            class="prev__block inform__icon w-4/5 h-10 mt-3 border-b-2 border-slate-400 outline-none pl-9 text-xs"
-            placeholder="Дополнительная информация"
-          />
+          <div class="flex flex-col w-4/5 h-[70px]">
+            <input
+              v-model="phoneNumber"
+              type="text"
+              class="prev__block phone__icon w-4/5 h-8 border-b-2 border-slate-400 outline-none pl-9 text-md"
+              placeholder="Телефон"
+            />
+            <span v-if="isPhoneFieldError" class="text-red-500 text-[15px]"
+              >Это обязательное поле</span
+            >
+            <span v-if="!isPhonePatternValid" class="text-red-500 text-[15px]"
+              >Некорректный номер</span
+            >
+          </div>
+          <div class="flex flex-col w-4/5 h-[80px]">
+            <input
+              v-model="informText"
+              type="textArea"
+              class="prev__block inform__icon w-4/5 h-10 border-b-2 border-slate-400 outline-none pl-9 text-sm"
+              placeholder="Дополнительная информация"
+            />
+            <span v-if="informText.length" class="text-slate-400 text-[15px]"
+              >[ {{ informText.length }} / 200 ]</span
+            >
+          </div>
         </div>
       </div>
       <div class="flex flex-col items-center w-[500px] h-[270px] bg-white pl-2 mt-5">
