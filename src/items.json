@@ -3,7 +3,7 @@
     "id": 1,
     "title": "ролл ясай",
     "price": 200,
-    "image_link": ".src/assets/images/roll-1.png",
+    "image_link": "./src/assets/images/roll-1.png",
     "description": "Огурец, авакадо, помидор, болгарский перец, листья салата, кунжут",
     "weight": 185,
     "type": "rolls"
@@ -12,7 +12,7 @@
     "id": 2,
     "title": "мясные роллы",
     "price": 240,
-    "image_link": ".src/assets/images/roll-2.png",
+    "image_link": "./src/assets/images/roll-2.png",
     "description": "Огурец, авакадо, помидор, болгарский перец, листья салата, кунжут",
     "weight": 260,
     "type": "rolls"
@@ -21,7 +21,7 @@
     "id": 3,
     "title": "ролл лайт",
     "price": 165,
-    "image_link": ".src/assets/images/roll-3.png",
+    "image_link": "./src/assets/images/roll-3.png",
     "description": "Листья салата, огурец, перец, помидор, сырный соус, чипсы",
     "weight": 190,
     "type": "rolls"
@@ -30,7 +30,7 @@
     "id": 4,
     "title": "ролл веган",
     "price": 200,
-    "image_link": ".src/assets/images/roll-4.png",
+    "image_link": "./src/assets/images/roll-4.png",
     "description": "Листья салата, авокадо, огурец, спаржа, сивид чука, кунжут",
     "weight": 230,
     "type": "rolls"
@@ -39,7 +39,7 @@
     "id": 5,
     "title": "ролл чирро",
     "price": 210,
-    "image_link": ".src/assets/images/roll-5.png",
+    "image_link": "./src/assets/images/roll-5.png",
     "description": "Листья салата, копченая курица, болгарский перец, твердый сыр, чесночный соус",
     "weight": 210,
     "type": "rolls"
@@ -48,7 +48,7 @@
     "id": 6,
     "title": "ролл тайол",
     "price": 215,
-    "image_link": ".src/assets/images/roll-6.png",
+    "image_link": "./src/assets/images/roll-6.png",
     "description": "Огурец, помидор, сыр творожный, бекон, сыр маасдам",
     "weight": 215,
     "type": "rolls"
@@ -57,7 +57,7 @@
     "id": 7,
     "title": "ролл батакон",
     "price": 220,
-    "image_link": ".src/assets/images/roll-7.png",
+    "image_link": "./src/assets/images/roll-7.png",
     "description": "Огурец, сыр творожный, бекон",
     "weight": 230,
     "type": "rolls"
@@ -66,7 +66,7 @@
     "id": 8,
     "title": "ролл каллипсо",
     "price": 195,
-    "image_link": ".src/assets/images/roll-8.png",
+    "image_link": "./src/assets/images/roll-8.png",
     "description": "Сыр творожный, огурец, мидии, стружка тунца",
     "weight": 185,
     "type": "rolls"
@@ -75,7 +75,7 @@
     "id": 9,
     "title": "ролл кавьяр",
     "price": 200,
-    "image_link": ".src/assets/images/roll-9.png",
+    "image_link": "./src/assets/images/roll-9.png",
     "description": "Сыр творожный, помидор, огурец, мидии, майонез",
     "weight": 240,
     "type": "rolls"
@@ -84,7 +84,7 @@
     "id": 10,
     "title": "ролл чипу",
     "price": 190,
-    "image_link": ".src/assets/images/roll-10.png",
+    "image_link": "./src/assets/images/roll-10.png",
     "description": "Сыр творожный, лосось, томаго, стружка тунца",
     "weight": 180,
     "type": "rolls"
@@ -93,7 +93,7 @@
     "id": 11,
     "title": "ролл катана",
     "price": 250,
-    "image_link": ".src/assets/images/roll-11.png",
+    "image_link": "./src/assets/images/roll-11.png",
     "description": "Сыр творожный, краб, огурец, черный кунжут, лососевый тар-тар, спайси соус",
     "weight": 240,
     "type": "rolls"
@@ -102,7 +102,7 @@
     "id": 12,
     "title": "ролл мишуку",
     "price": 260,
-    "image_link": ".src/assets/images/roll-12.png",
+    "image_link": "./src/assets/images/roll-12.png",
     "description": "Угорь, краб, огурец, масаго, сыр творожный, сырный соус, картофельные чипсы",
     "weight": 210,
     "type": "rolls"
@@ -111,7 +111,7 @@
     "id": 13,
     "title": "ролл ясай",
     "price": 200,
-    "image_link": ".src/assets/images/roll-1.png",
+    "image_link": "./src/assets/images/roll-1.png",
     "description": "Огурец, авакадо, помидор, болгарский перец, листья салата, кунжут",
     "weight": 185,
     "type": "rolls"
@@ -120,7 +120,7 @@
     "id": 14,
     "title": "ролл веган",
     "price": 200,
-    "image_link": ".src/assets/images/roll-4.png",
+    "image_link": "./src/assets/images/roll-4.png",
     "description": "Листья салата, авокадо, огурец, спаржа, сивид чука, кунжут",
     "weight": 230,
     "type": "rolls"
@@ -129,7 +129,7 @@
     "id": 15,
     "title": "ролл лайт",
     "price": 165,
-    "image_link": ".src/assets/images/roll-3.png",
+    "image_link": "./src/assets/images/roll-3.png",
     "description": "Листья салата, огурец, перец, помидор, сырный соус, чипсы",
     "weight": 190,
     "type": "rolls"
@@ -138,9 +138,135 @@
     "id": 16,
     "title": "ролл веган",
     "price": 200,
-    "image_link": ".src/assets/images/roll-4.png",
+    "image_link": "./src/assets/images/roll-4.png",
     "description": "Листья салата, авокадо, огурец, спаржа, сивид чука, кунжут",
     "weight": 230,
     "type": "rolls"
+  },
+  {
+    "id": 17,
+    "title": "Сяке",
+    "price": 199,
+    "image_link": "./src/assets/images/suhi-1.png",
+    "description": "с лососем",
+    "weight": 35,
+    "type": "suhi"
+  },
+  {
+    "id": 18,
+    "title": "Унаги",
+    "price": 139,
+    "image_link": "./src/assets/images/suhi-2.png",
+    "description": "с угрем",
+    "weight": 30,
+    "type": "suhi"
+  },
+  {
+    "id": 19,
+    "title": "Эби",
+    "price": 139,
+    "image_link": "./src/assets/images/suhi-3.png",
+    "description": "с лососем",
+    "weight": 30,
+    "type": "suhi"
+  },
+  {
+    "id": 20,
+    "title": "Магура",
+    "price": 149,
+    "image_link": "./src/assets/images/suhi-4.png",
+    "description": "с тунцом",
+    "weight": 35,
+    "type": "suhi"
+  },
+  {
+    "id": 21,
+    "title": "Спайс Сяке",
+    "price": 199,
+    "image_link": "./src/assets/images/suhi-5.png",
+    "description": "с лососем и соусом спайс",
+    "weight": 35,
+    "type": "suhi"
+  },
+  {
+    "id": 22,
+    "title": "Спайс Унаги",
+    "price": 169,
+    "image_link": "./src/assets/images/suhi-6.png",
+    "description": "с угрем и соусом спайс",
+    "weight": 35,
+    "type": "suhi"
+  },
+  {
+    "id": 23,
+    "title": "Спайс Эби",
+    "price": 149,
+    "image_link": "./src/assets/images/suhi-7.png",
+    "description": "с креветкой и соусом спайс",
+    "weight": 35,
+    "type": "suhi"
+  },
+  {
+    "id": 24,
+    "title": "Спайс Mагура",
+    "price": 149,
+    "image_link": "./src/assets/images/suhi-8.png",
+    "description": "с тунцом и соусом спайс",
+    "weight": 35,
+    "type": "suhi"
+  },
+  {
+    "id": 25,
+    "title": "С мидиями",
+    "price": 539,
+    "image_link": "./src/assets/images/pasta-1.png",
+    "description": "Спагетти с мясом мидий, вялеными томатами и сливочным соусом с домашним сыром",
+    "weight": 300,
+    "type": "pasta"
+  },
+  {
+    "id": 26,
+    "title": "Ризони",
+    "price": 579,
+    "image_link": "./src/assets/images/pasta-2.png",
+    "description": "Паста орзо в сливочном соусе с обжаренными белыми грибами, сыром пармезан и трюфельным ...",
+    "weight": 280,
+    "type": "pasta"
+  },
+  {
+    "id": 27,
+    "title": "Карбонара",
+    "price": 499,
+    "image_link": "./src/assets/images/pasta-3.png",
+    "description": "Легендарная паста с беконом, сливочно-яичным соусом, луком и сыром пармезан",
+    "weight": 280,
+    "type": "pasta"
+  },
+  {
+    "id": 28,
+    "title": "Лосось",
+    "price": 669,
+    "image_link": "./src/assets/images/salat-1.png",
+    "description": "Микс салатных листьев, свежая морковь, заправленные соусом ясай томаты черри, домашний...",
+    "weight": 240,
+    "type": "pasta"
+  },
+  {
+    "id": 29,
+    "title": "Тяхан",
+    "price": 399,
+    "image_link": "./src/assets/images/hot-1.png",
+    "description": "Рис с креветками, кальмаром и мясом мидий с соевым соусом. Украшен перцем чили и зеленью...",
+    "weight": 250,
+    "type": "hot"
+  },
+  {
+    "id": 30,
+    "title": "Креветки гриль",
+    "price": 629,
+    "image_link": "./src/assets/images/hot-2.png",
+    "description": "Нежные креветки приготовленые на гриле со специями. Подаются с соусом на основе сливочного...",
+    "weight": 250,
+    "type": "hot"
   }
 ]

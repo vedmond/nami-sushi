@@ -8,7 +8,7 @@ const basketStore = useBasketStore()
 const isShowBasket = inject('isShowBasket')
 const isShowMakeOrder = inject('isShowMakeOrder')
 
-const emits = defineEmits(['show-basket', 'show-make-order'])
+const emits = defineEmits(['show-basket', 'show-make-order', 'listener-notification'])
 </script>
 <template>
   <div
@@ -45,7 +45,11 @@ const emits = defineEmits(['show-basket', 'show-make-order'])
         </div>
       </div>
     </div>
-    <make-order v-else />
+    <make-order
+      v-else
+      @show-basket="emits('show-basket')"
+      @listener-notification="emits('listener-notification')"
+    />
   </div>
 </template>
 

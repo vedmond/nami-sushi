@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useBasketStore } from '@/stores/BasketStore'
+import Payment from '@/components/PaymentView.vue'
 const basketStore = useBasketStore()
 
 const name = ref('')
@@ -10,6 +11,9 @@ const isPhoneFieldError = ref(false)
 const isNameFieldError = ref(false)
 const isPhonePatternValid = ref(true)
 const isNamePatternValid = ref(true)
+const isPaymentPage = ref(false)
+
+const emits = defineEmits(['show-basket', 'listener-notification'])
 
 const phonePattern = /^\+?\d{11}$|^\d{11}$/
 const namePattern = /^[a-zA-Zа-яА-Я]{2,}$/
@@ -31,10 +35,18 @@ const submitForm = () => {
     !isNameFieldError.value &&
     isNamePatternValid.value
   ) {
-    console.log(name.value)
-    console.log(phoneNumber.value)
-    console.log(informText.value.length)
+    isPaymentPage.value = true
   }
+}
+const handlerPayment = () => {
+  isPaymentPage.value = false
+  console.log('add to DB payment !!!')
+  console.log(name.value)
+  console.log(phoneNumber.value)
+  console.log(informText.value)
+  emits('show-basket')
+  emits('listener-notification')
+  basketStore.deleteItemsInBasket()
 }
 watch(phoneNumber, () => {
   isPhoneFieldError.value = false
@@ -46,7 +58,7 @@ watch(name, () => {
 })
 </script>
 <template>
-  <div class="flex flex-col items-center">
+  <div v-if="!isPaymentPage" class="flex flex-col items-center">
     <div class="flex flex-row gap-4 mt-10">
       <span class="text-black text-xl font-bold pt-[4px]">·</span>
       <h2 class="text-black text-2xl text-uppercase">Оформление заказа</h2>
@@ -107,9 +119,12 @@ watch(name, () => {
             <span v-if="isPhoneFieldError" class="text-red-500 text-[15px]"
               >Это обязательное поле</span
             >
-            <span v-if="!isPhonePatternValid" class="text-red-500 text-[15px]"
-              >Некорректный номер</span
-            >
+            <p v-if="!isPhonePatternValid" class="text-red-500 text-[15px]">
+              Некорректный номер
+              <span v-if="!isPhonePatternValid" class="text-slate-500 text-[12px] italic">
+                (должно быть 11 цифр)</span
+              >
+            </p>
           </div>
           <div class="flex flex-col w-4/5 h-[80px]">
             <input
@@ -146,6 +161,7 @@ watch(name, () => {
       </div>
     </form>
   </div>
+  <Payment v-else @handler-payment="handlerPayment" />
 </template>
 
 <style scoped>

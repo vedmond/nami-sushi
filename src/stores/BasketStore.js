@@ -46,6 +46,10 @@ export const useBasketStore = defineStore('basket', {
     },
     totalPrice() {
       return this.basketItems.reduce((acc, item) => acc + item.price * item.count, 0)
+    },
+    deleteItemsInBasket() {
+      this.basketItems = []
+      localStorage.setItem('cart', JSON.stringify(this.basketItems))
     }
   }
 })
