@@ -1,13 +1,11 @@
 <script setup>
-import { computed, inject } from 'vue'
+import { inject } from 'vue'
 defineProps({
   style: String
 })
 const item = inject('item')
 const itemLink = item.image_link
-const src = computed(() => {
-  return itemLink
-})
+const src = `${itemLink}`
 </script>
 <template>
   <button :class="style">
